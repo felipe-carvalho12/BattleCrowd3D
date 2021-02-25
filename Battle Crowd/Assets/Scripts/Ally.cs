@@ -24,6 +24,8 @@ public class Ally : MonoBehaviour
     private void FixedUpdate()
     {
         rigidBody.velocity = new Vector3(SwipeManager.swipeDelta.x * speed, rigidBody.velocity.y, SwipeManager.swipeDelta.y * speed);
+        Debug.Log(Quaternion.Euler(new Vector3(-90, Vector2.SignedAngle(new Vector2(0, 1), SwipeManager.swipeDelta), Vector2.SignedAngle(new Vector2(0, 1), SwipeManager.swipeDelta))));
+        transform.rotation = Quaternion.Euler(new Vector3(-90, Vector2.SignedAngle(new Vector2(0, 1), SwipeManager.swipeDelta), Vector2.SignedAngle(new Vector2(0, 1), SwipeManager.swipeDelta)));
         if (transform.position.y < 30)
         {
             DestroyAlly();
