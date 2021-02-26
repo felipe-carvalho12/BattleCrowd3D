@@ -285,6 +285,8 @@ MonoBehaviour:
   - {fileID: 5045381827194583914, guid: 29b4e43a879bef041b4b3934bb4b312c, type: 3}
   - {fileID: 5045381827194583914, guid: 50fbd4616ee328e47b9956d6cc2386fb, type: 3}
   - {fileID: 5045381827194583914, guid: af2106ee039f9c8418267499bca9becb, type: 3}
+  - {fileID: 5045381827194583914, guid: 50fbd4616ee328e47b9956d6cc2386fb, type: 3}
+  - {fileID: 5045381827194583914, guid: df8c6ea7355c95b4aa20d88106bd8420, type: 3}
   allyTileIndex: 0
 --- !u!4 &294931942
 Transform:
@@ -1279,7 +1281,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 171249947}
         m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
