@@ -26,7 +26,7 @@ public class Ally : MonoBehaviour
         rigidBody.velocity = new Vector3(SwipeManager.swipeDelta.x * speed, rigidBody.velocity.y, SwipeManager.swipeDelta.y * speed);
         if (SwipeManager.swipeDelta.magnitude != 0)
         {
-            transform.rotation = Quaternion.Euler(-90, 0, -Vector2.SignedAngle(new Vector2(0, 1), SwipeManager.swipeDelta));
+            transform.rotation = Quaternion.Euler(0, -Vector2.SignedAngle(new Vector2(0, 1), SwipeManager.swipeDelta), 0);
         }
         if (transform.position.y < 30)
         {
@@ -44,7 +44,7 @@ public class Ally : MonoBehaviour
         {
             GameController.armyCount++;
             Destroy(other.gameObject);
-            GameObject newAlly = Instantiate(gameObject, other.transform.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
+            GameObject newAlly = Instantiate(gameObject, other.transform.position, Quaternion.identity);
             newAlly.transform.tag = "Ally";
             newAlly.transform.SetParent(allies.transform);
         }
