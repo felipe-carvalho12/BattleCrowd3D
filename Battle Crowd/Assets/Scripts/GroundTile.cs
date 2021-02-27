@@ -14,7 +14,7 @@ public class GroundTile : MonoBehaviour
     {
         if (other.transform.tag == "ReferenceAlly")
         {
-            if (!spawnedNewTile && !GroundSpawner.lastTileWasSpawned) groundSpawner.SpawnTile(Random.Range(0, groundSpawner.groundTiles.Length));
+            if (!spawnedNewTile && !GroundSpawner.lastTileWasSpawned) groundSpawner.SpawnTile();
             if (transform.position.z > other.transform.position.z)
             {
                 groundSpawner.allyTileIndex--;

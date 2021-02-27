@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2494516609770867285}
   m_Layer: 0
-  m_Name: GroundTile07
+  m_Name: GroundTile01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,13 +45,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2013827835226029702, guid: dcc1cd3b1a6154a479b792a211af28d2,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2013827835226029702, guid: dcc1cd3b1a6154a479b792a211af28d2,
-        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2013827835226029702, guid: dcc1cd3b1a6154a479b792a211af28d2,
         type: 3}
@@ -102,11 +97,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Base
-      objectReference: {fileID: 0}
-    - target: {fileID: 7319774309571538157, guid: dcc1cd3b1a6154a479b792a211af28d2,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcc1cd3b1a6154a479b792a211af28d2, type: 3}

@@ -485,7 +485,7 @@ MonoBehaviour:
   renderingRadius: 40
   lastTile: {fileID: 6549982025936095269, guid: ecb6b76140f6fdb47bd47a3027c02460,
     type: 3}
-  tilesInLevel: 50
+  tilesInLevel: 100
   groundTiles:
   - {fileID: 5045381827194583914, guid: 50fbd4616ee328e47b9956d6cc2386fb, type: 3}
   - {fileID: 5045381827194583914, guid: 5fed8658d36929f42807e16c3c0cba4d, type: 3}
@@ -499,6 +499,8 @@ MonoBehaviour:
   - {fileID: 5045381827194583914, guid: c3931123b9a38f240828664cf76f318a, type: 3}
   - {fileID: 5045381827194583914, guid: 50fbd4616ee328e47b9956d6cc2386fb, type: 3}
   - {fileID: 5045381827194583914, guid: bf74f26b80d9fc34482a69aa0d6de38d, type: 3}
+  - {fileID: 5045381827194583914, guid: 50fbd4616ee328e47b9956d6cc2386fb, type: 3}
+  - {fileID: 5045381827194583914, guid: be2eabee688f85447aeacc211afc74bf, type: 3}
   - {fileID: 5045381827194583914, guid: 50fbd4616ee328e47b9956d6cc2386fb, type: 3}
   allyTileIndex: 0
 --- !u!4 &294931942
