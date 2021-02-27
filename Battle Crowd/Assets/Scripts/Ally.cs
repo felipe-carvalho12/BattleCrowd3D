@@ -3,6 +3,7 @@
 public class Ally : MonoBehaviour
 {
     Rigidbody rigidBody;
+    Animator animator;
     GameObject allies;
     float speed = 0.03f;
 
@@ -19,6 +20,7 @@ public class Ally : MonoBehaviour
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
         allies = GameObject.FindGameObjectWithTag("Allies");
     }
     private void FixedUpdate()
@@ -26,11 +28,22 @@ public class Ally : MonoBehaviour
         rigidBody.velocity = new Vector3(SwipeManager.swipeDelta.x * speed, rigidBody.velocity.y, SwipeManager.swipeDelta.y * speed);
         if (SwipeManager.swipeDelta.magnitude != 0)
         {
+
             transform.rotation = Quaternion.Euler(0, -Vector2.SignedAngle(new Vector2(0, 1), SwipeManager.swipeDelta), 0);
         }
+
         if (transform.position.y < 30)
         {
             DestroyAlly();
+        }
+
+        if (rigidBody.velocity.magnitude > 0 && !animator.GetBool("running"))
+        {
+            animator.SetBool("running", true);
+        }
+        else
+        {
+            animator.SetBool("running", false);
         }
     }
 

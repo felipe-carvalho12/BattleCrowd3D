@@ -486,7 +486,7 @@ MonoBehaviour:
   lastTile: {fileID: 6549982025936095269, guid: ecb6b76140f6fdb47bd47a3027c02460,
     type: 3}
   tilesInLevel: 100
-  tilesWeights: 0c00000002000000020000000200000001000000010000000100000001000000
+  tilesWeights: 1100000003000000030000000300000003000000010000000100000003000000
   tiles:
   - {fileID: 5045381827194583914, guid: 50fbd4616ee328e47b9956d6cc2386fb, type: 3}
   - {fileID: 5045381827194583914, guid: 5fed8658d36929f42807e16c3c0cba4d, type: 3}
@@ -879,7 +879,7 @@ PrefabInstance:
     - target: {fileID: 6780441669376588933, guid: 29ffba0636f381f4ca5d6f029cfef925,
         type: 3}
       propertyPath: m_Name
-      value: SP_HumanoidBot_Tpose
+      value: Ally
       objectReference: {fileID: 0}
     - target: {fileID: 6780441669376588933, guid: 29ffba0636f381f4ca5d6f029cfef925,
         type: 3}
