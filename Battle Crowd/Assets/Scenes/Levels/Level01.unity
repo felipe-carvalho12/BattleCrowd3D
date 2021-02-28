@@ -486,15 +486,13 @@ MonoBehaviour:
   lastTile: {fileID: 6549982025936095269, guid: ecb6b76140f6fdb47bd47a3027c02460,
     type: 3}
   tilesInLevel: 100
-  tilesWeights: 1100000003000000030000000300000003000000010000000100000003000000
+  tilesWeights: 0b0000000300000003000000030000000100000001000000
   tiles:
   - {fileID: 5045381827194583914, guid: 50fbd4616ee328e47b9956d6cc2386fb, type: 3}
   - {fileID: 5045381827194583914, guid: 5fed8658d36929f42807e16c3c0cba4d, type: 3}
   - {fileID: 5045381827194583914, guid: 29b4e43a879bef041b4b3934bb4b312c, type: 3}
   - {fileID: 5045381827194583914, guid: af2106ee039f9c8418267499bca9becb, type: 3}
   - {fileID: 5045381827194583914, guid: df8c6ea7355c95b4aa20d88106bd8420, type: 3}
-  - {fileID: 5045381827194583914, guid: c3931123b9a38f240828664cf76f318a, type: 3}
-  - {fileID: 5045381827194583914, guid: bf74f26b80d9fc34482a69aa0d6de38d, type: 3}
   - {fileID: 5045381827194583914, guid: be2eabee688f85447aeacc211afc74bf, type: 3}
   allyTileIndex: 0
 --- !u!4 &294931942
@@ -1014,8 +1012,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -128, y: -25}
-  m_SizeDelta: {x: 250, y: 50}
+  m_AnchoredPosition: {x: -202, y: -39}
+  m_SizeDelta: {x: 400, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &807483728
 MonoBehaviour:
@@ -1038,11 +1036,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 26
+    m_FontSize: 50
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 50
     m_Alignment: 5
     m_AlignByGeometry: 1
     m_RichText: 1

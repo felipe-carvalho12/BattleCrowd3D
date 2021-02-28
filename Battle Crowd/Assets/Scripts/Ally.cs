@@ -5,7 +5,8 @@ public class Ally : MonoBehaviour
     Rigidbody rigidBody;
     Animator animator;
     GameObject allies;
-    float speed = 0.03f;
+    float speedMultiplier = .05f;
+    float maxSpeed = 30;
 
     void DestroyAlly()
     {
@@ -25,7 +26,10 @@ public class Ally : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        rigidBody.velocity = new Vector3(SwipeManager.swipeDelta.x * speed, rigidBody.velocity.y, SwipeManager.swipeDelta.y * speed);
+        float velX = SwipeManager.swipeDelta.x * speedMultiplier <= maxSpeed ? SwipeManager.swipeDelta.x * speedMultiplier : maxSpeed;
+        float velZ = SwipeManager.swipeDelta.y * speedMultiplier <= maxSpeed ? SwipeManager.swipeDelta.y * speedMultiplier : maxSpeed;
+        rigidBody.velocity = new Vector3(velX, rigidBody.velocity.y, velZ);
+
         if (SwipeManager.swipeDelta.magnitude != 0)
         {
 
