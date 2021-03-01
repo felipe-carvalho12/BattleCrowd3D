@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Events : MonoBehaviour
+public class LevelEvents : MonoBehaviour
 {
     public void ReplayGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

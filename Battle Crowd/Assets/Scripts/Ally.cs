@@ -2,6 +2,7 @@
 
 public class Ally : MonoBehaviour
 {
+    [SerializeField] float walkingMinSpeed;
     [SerializeField] float walkingMaxSpeed;
     [SerializeField] float joggingMaxSpeed;
     [SerializeField] float speedMultiplier;
@@ -56,10 +57,10 @@ public class Ally : MonoBehaviour
         XZvelocity.x = rigidBody.velocity.x;
         XZvelocity.y = rigidBody.velocity.z;
 
+
         // Idle
-        if (XZvelocity.magnitude == 0 && (walking || running))
+        if (XZvelocity.magnitude < walkingMinSpeed && (walking || running || jogging))
         {
-            Debug.Log("idle");
             animator.SetBool("walking", false);
             animator.SetBool("jogging", false);
             animator.SetBool("running", false);
@@ -70,7 +71,6 @@ public class Ally : MonoBehaviour
         // Walking
         else if ((XZvelocity.magnitude > 0 && XZvelocity.magnitude <= walkingMaxSpeed) && !walking)
         {
-            Debug.Log("walking");
             animator.SetBool("walking", true);
             animator.SetBool("jogging", false);
             animator.SetBool("running", false);
@@ -81,7 +81,6 @@ public class Ally : MonoBehaviour
         // Jogging
         else if ((XZvelocity.magnitude > walkingMaxSpeed && XZvelocity.magnitude <= joggingMaxSpeed) && !jogging)
         {
-            Debug.Log("jogging");
             animator.SetBool("walking", false);
             animator.SetBool("jogging", true);
             animator.SetBool("running", false);
@@ -92,7 +91,6 @@ public class Ally : MonoBehaviour
         // Running
         else if ((XZvelocity.magnitude > joggingMaxSpeed) && !running)
         {
-            Debug.Log("running");
             animator.SetBool("walking", false);
             animator.SetBool("jogging", false);
             animator.SetBool("running", true);
