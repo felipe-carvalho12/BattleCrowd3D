@@ -11,7 +11,7 @@ public class MainCamera : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        if (player == null && GameController.armyCount > 0)
+        if (!player.gameObject.activeSelf && GameController.armyCount > 0)
         {
             player = GameObject.FindGameObjectWithTag("ReferenceAlly").transform;
         }

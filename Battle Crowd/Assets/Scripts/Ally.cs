@@ -6,16 +6,17 @@ public class Ally : MonoBehaviour
     Animator animator;
     GameObject allies;
     float speedMultiplier = .05f;
-    float maxSpeed = 30;
+    float maxSpeed = 10;
+    bool running;
 
     void DestroyAlly()
     {
-        string tag = transform.tag;
-        Destroy(gameObject);
+        gameObject.SetActive(false);
         GameController.armyCount--;
-        if (tag == "ReferenceAlly" && GameController.armyCount > 0)
+        if (transform.tag == "ReferenceAlly" && GameController.armyCount > 0)
         {
             GameObject.FindGameObjectWithTag("Ally").tag = "ReferenceAlly";
+            transform.tag = "Ally";
         }
     }
     private void Start()
@@ -26,8 +27,14 @@ public class Ally : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        float velX = SwipeManager.swipeDelta.x * speedMultiplier <= maxSpeed ? SwipeManager.swipeDelta.x * speedMultiplier : maxSpeed;
-        float velZ = SwipeManager.swipeDelta.y * speedMultiplier <= maxSpeed ? SwipeManager.swipeDelta.y * speedMultiplier : maxSpeed;
+        float velX = SwipeManager.swipeDelta.x * speedMultiplier;
+        if (velX > maxSpeed) velX = maxSpeed;
+        else if (Mathf.Abs(velX) > maxSpeed) velX = -maxSpeed;
+
+        float velZ = SwipeManager.swipeDelta.y * speedMultiplier;
+        if (velZ > maxSpeed) velZ = maxSpeed;
+        else if (Mathf.Abs(velZ) > maxSpeed) velZ = -maxSpeed;
+        
         rigidBody.velocity = new Vector3(velX, rigidBody.velocity.y, velZ);
 
         if (SwipeManager.swipeDelta.magnitude != 0)
@@ -41,26 +48,28 @@ public class Ally : MonoBehaviour
             DestroyAlly();
         }
 
-        if (rigidBody.velocity.magnitude > 0 && !animator.GetBool("running"))
+        if ((rigidBody.velocity.x != 0 || rigidBody.velocity.z != 0) && !running)
         {
             animator.SetBool("running", true);
+            running = true;
         }
-        else
+        else if ((rigidBody.velocity.x == 0 || rigidBody.velocity.z == 0) && running)
         {
             animator.SetBool("running", false);
+            running = false;
         }
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.tag == "Obstacle")
+        if (gameObject.activeSelf && other.transform.tag == "Obstacle")
         {
             DestroyAlly();
         }
-        if (other.transform.tag == "Enemy")
+        else if (gameObject.activeSelf && other.transform.tag == "Enemy")
         {
             GameController.armyCount++;
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
             GameObject newAlly = Instantiate(gameObject, other.transform.position, Quaternion.identity);
             newAlly.transform.tag = "Ally";
             newAlly.transform.SetParent(allies.transform);

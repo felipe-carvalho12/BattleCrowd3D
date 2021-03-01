@@ -1,144 +1,410 @@
 fileFormatVersion: 2
 guid: bb7b3697df9de9d4ab3f43e784ffdb5a
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Head
-    100002: HeadTop_End
-    100004: Hips
-    100006: LeftArm
-    100008: LeftFoot
-    100010: LeftFoot_IK_BakingLOC
-    100012: LeftForeArm
-    100014: LeftForeArm_IK_BakingLOC
-    100016: LeftHand
-    100018: LeftHandIndex1
-    100020: LeftHandIndex2
-    100022: LeftHandIndex3
-    100024: LeftHandIndex4
-    100026: LeftHandMiddle1
-    100028: LeftHandMiddle2
-    100030: LeftHandMiddle3
-    100032: LeftHandMiddle4
-    100034: LeftHandRing1
-    100036: LeftHandRing2
-    100038: LeftHandRing3
-    100040: LeftHandRing4
-    100042: LeftHandThumb1
-    100044: LeftHandThumb2
-    100046: LeftHandThumb3
-    100048: LeftHandThumb4
-    100050: LeftLeg
-    100052: LeftLeg_IK_BakingLOC
-    100054: LeftShoulder
-    100056: LeftToe_End
-    100058: LeftToeBase
-    100060: LeftUpLeg
-    100062: Neck
-    100064: RightArm
-    100066: RightFoot
-    100068: RightFoot_IK_BakingLOC
-    100070: RightForeArm
-    100072: RightForeArm_IK_BakingLOC
-    100074: RightHand
-    100076: RightHandIndex1
-    100078: RightHandIndex2
-    100080: RightHandIndex3
-    100082: RightHandIndex4
-    100084: RightHandMiddle1
-    100086: RightHandMiddle2
-    100088: RightHandMiddle3
-    100090: RightHandMiddle4
-    100092: RightHandRing1
-    100094: RightHandRing2
-    100096: RightHandRing3
-    100098: RightHandRing4
-    100100: RightHandThumb1
-    100102: RightHandThumb2
-    100104: RightHandThumb3
-    100106: RightHandThumb4
-    100108: RightLeg
-    100110: RightLeg_IK_BakingLOC
-    100112: RightShoulder
-    100114: RightToe_End
-    100116: RightToeBase
-    100118: RightUpLeg
-    100120: Root
-    100122: //RootNode
-    100124: Spine
-    100126: Spine1
-    100128: Spine2
-    400000: Head
-    400002: HeadTop_End
-    400004: Hips
-    400006: LeftArm
-    400008: LeftFoot
-    400010: LeftFoot_IK_BakingLOC
-    400012: LeftForeArm
-    400014: LeftForeArm_IK_BakingLOC
-    400016: LeftHand
-    400018: LeftHandIndex1
-    400020: LeftHandIndex2
-    400022: LeftHandIndex3
-    400024: LeftHandIndex4
-    400026: LeftHandMiddle1
-    400028: LeftHandMiddle2
-    400030: LeftHandMiddle3
-    400032: LeftHandMiddle4
-    400034: LeftHandRing1
-    400036: LeftHandRing2
-    400038: LeftHandRing3
-    400040: LeftHandRing4
-    400042: LeftHandThumb1
-    400044: LeftHandThumb2
-    400046: LeftHandThumb3
-    400048: LeftHandThumb4
-    400050: LeftLeg
-    400052: LeftLeg_IK_BakingLOC
-    400054: LeftShoulder
-    400056: LeftToe_End
-    400058: LeftToeBase
-    400060: LeftUpLeg
-    400062: Neck
-    400064: RightArm
-    400066: RightFoot
-    400068: RightFoot_IK_BakingLOC
-    400070: RightForeArm
-    400072: RightForeArm_IK_BakingLOC
-    400074: RightHand
-    400076: RightHandIndex1
-    400078: RightHandIndex2
-    400080: RightHandIndex3
-    400082: RightHandIndex4
-    400084: RightHandMiddle1
-    400086: RightHandMiddle2
-    400088: RightHandMiddle3
-    400090: RightHandMiddle4
-    400092: RightHandRing1
-    400094: RightHandRing2
-    400096: RightHandRing3
-    400098: RightHandRing4
-    400100: RightHandThumb1
-    400102: RightHandThumb2
-    400104: RightHandThumb3
-    400106: RightHandThumb4
-    400108: RightLeg
-    400110: RightLeg_IK_BakingLOC
-    400112: RightShoulder
-    400114: RightToe_End
-    400116: RightToeBase
-    400118: RightUpLeg
-    400120: Root
-    400122: //RootNode
-    400124: Spine
-    400126: Spine1
-    400128: Spine2
-    7400000: Take 001
-    9500000: //RootNode
-    2186277476908879412: ImportLogs
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Head
+  - first:
+      1: 100002
+    second: HeadTop_End
+  - first:
+      1: 100004
+    second: Hips
+  - first:
+      1: 100006
+    second: LeftArm
+  - first:
+      1: 100008
+    second: LeftFoot
+  - first:
+      1: 100010
+    second: LeftFoot_IK_BakingLOC
+  - first:
+      1: 100012
+    second: LeftForeArm
+  - first:
+      1: 100014
+    second: LeftForeArm_IK_BakingLOC
+  - first:
+      1: 100016
+    second: LeftHand
+  - first:
+      1: 100018
+    second: LeftHandIndex1
+  - first:
+      1: 100020
+    second: LeftHandIndex2
+  - first:
+      1: 100022
+    second: LeftHandIndex3
+  - first:
+      1: 100024
+    second: LeftHandIndex4
+  - first:
+      1: 100026
+    second: LeftHandMiddle1
+  - first:
+      1: 100028
+    second: LeftHandMiddle2
+  - first:
+      1: 100030
+    second: LeftHandMiddle3
+  - first:
+      1: 100032
+    second: LeftHandMiddle4
+  - first:
+      1: 100034
+    second: LeftHandRing1
+  - first:
+      1: 100036
+    second: LeftHandRing2
+  - first:
+      1: 100038
+    second: LeftHandRing3
+  - first:
+      1: 100040
+    second: LeftHandRing4
+  - first:
+      1: 100042
+    second: LeftHandThumb1
+  - first:
+      1: 100044
+    second: LeftHandThumb2
+  - first:
+      1: 100046
+    second: LeftHandThumb3
+  - first:
+      1: 100048
+    second: LeftHandThumb4
+  - first:
+      1: 100050
+    second: LeftLeg
+  - first:
+      1: 100052
+    second: LeftLeg_IK_BakingLOC
+  - first:
+      1: 100054
+    second: LeftShoulder
+  - first:
+      1: 100056
+    second: LeftToe_End
+  - first:
+      1: 100058
+    second: LeftToeBase
+  - first:
+      1: 100060
+    second: LeftUpLeg
+  - first:
+      1: 100062
+    second: Neck
+  - first:
+      1: 100064
+    second: RightArm
+  - first:
+      1: 100066
+    second: RightFoot
+  - first:
+      1: 100068
+    second: RightFoot_IK_BakingLOC
+  - first:
+      1: 100070
+    second: RightForeArm
+  - first:
+      1: 100072
+    second: RightForeArm_IK_BakingLOC
+  - first:
+      1: 100074
+    second: RightHand
+  - first:
+      1: 100076
+    second: RightHandIndex1
+  - first:
+      1: 100078
+    second: RightHandIndex2
+  - first:
+      1: 100080
+    second: RightHandIndex3
+  - first:
+      1: 100082
+    second: RightHandIndex4
+  - first:
+      1: 100084
+    second: RightHandMiddle1
+  - first:
+      1: 100086
+    second: RightHandMiddle2
+  - first:
+      1: 100088
+    second: RightHandMiddle3
+  - first:
+      1: 100090
+    second: RightHandMiddle4
+  - first:
+      1: 100092
+    second: RightHandRing1
+  - first:
+      1: 100094
+    second: RightHandRing2
+  - first:
+      1: 100096
+    second: RightHandRing3
+  - first:
+      1: 100098
+    second: RightHandRing4
+  - first:
+      1: 100100
+    second: RightHandThumb1
+  - first:
+      1: 100102
+    second: RightHandThumb2
+  - first:
+      1: 100104
+    second: RightHandThumb3
+  - first:
+      1: 100106
+    second: RightHandThumb4
+  - first:
+      1: 100108
+    second: RightLeg
+  - first:
+      1: 100110
+    second: RightLeg_IK_BakingLOC
+  - first:
+      1: 100112
+    second: RightShoulder
+  - first:
+      1: 100114
+    second: RightToe_End
+  - first:
+      1: 100116
+    second: RightToeBase
+  - first:
+      1: 100118
+    second: RightUpLeg
+  - first:
+      1: 100120
+    second: Root
+  - first:
+      1: 100122
+    second: //RootNode
+  - first:
+      1: 100124
+    second: Spine
+  - first:
+      1: 100126
+    second: Spine1
+  - first:
+      1: 100128
+    second: Spine2
+  - first:
+      4: 400000
+    second: Head
+  - first:
+      4: 400002
+    second: HeadTop_End
+  - first:
+      4: 400004
+    second: Hips
+  - first:
+      4: 400006
+    second: LeftArm
+  - first:
+      4: 400008
+    second: LeftFoot
+  - first:
+      4: 400010
+    second: LeftFoot_IK_BakingLOC
+  - first:
+      4: 400012
+    second: LeftForeArm
+  - first:
+      4: 400014
+    second: LeftForeArm_IK_BakingLOC
+  - first:
+      4: 400016
+    second: LeftHand
+  - first:
+      4: 400018
+    second: LeftHandIndex1
+  - first:
+      4: 400020
+    second: LeftHandIndex2
+  - first:
+      4: 400022
+    second: LeftHandIndex3
+  - first:
+      4: 400024
+    second: LeftHandIndex4
+  - first:
+      4: 400026
+    second: LeftHandMiddle1
+  - first:
+      4: 400028
+    second: LeftHandMiddle2
+  - first:
+      4: 400030
+    second: LeftHandMiddle3
+  - first:
+      4: 400032
+    second: LeftHandMiddle4
+  - first:
+      4: 400034
+    second: LeftHandRing1
+  - first:
+      4: 400036
+    second: LeftHandRing2
+  - first:
+      4: 400038
+    second: LeftHandRing3
+  - first:
+      4: 400040
+    second: LeftHandRing4
+  - first:
+      4: 400042
+    second: LeftHandThumb1
+  - first:
+      4: 400044
+    second: LeftHandThumb2
+  - first:
+      4: 400046
+    second: LeftHandThumb3
+  - first:
+      4: 400048
+    second: LeftHandThumb4
+  - first:
+      4: 400050
+    second: LeftLeg
+  - first:
+      4: 400052
+    second: LeftLeg_IK_BakingLOC
+  - first:
+      4: 400054
+    second: LeftShoulder
+  - first:
+      4: 400056
+    second: LeftToe_End
+  - first:
+      4: 400058
+    second: LeftToeBase
+  - first:
+      4: 400060
+    second: LeftUpLeg
+  - first:
+      4: 400062
+    second: Neck
+  - first:
+      4: 400064
+    second: RightArm
+  - first:
+      4: 400066
+    second: RightFoot
+  - first:
+      4: 400068
+    second: RightFoot_IK_BakingLOC
+  - first:
+      4: 400070
+    second: RightForeArm
+  - first:
+      4: 400072
+    second: RightForeArm_IK_BakingLOC
+  - first:
+      4: 400074
+    second: RightHand
+  - first:
+      4: 400076
+    second: RightHandIndex1
+  - first:
+      4: 400078
+    second: RightHandIndex2
+  - first:
+      4: 400080
+    second: RightHandIndex3
+  - first:
+      4: 400082
+    second: RightHandIndex4
+  - first:
+      4: 400084
+    second: RightHandMiddle1
+  - first:
+      4: 400086
+    second: RightHandMiddle2
+  - first:
+      4: 400088
+    second: RightHandMiddle3
+  - first:
+      4: 400090
+    second: RightHandMiddle4
+  - first:
+      4: 400092
+    second: RightHandRing1
+  - first:
+      4: 400094
+    second: RightHandRing2
+  - first:
+      4: 400096
+    second: RightHandRing3
+  - first:
+      4: 400098
+    second: RightHandRing4
+  - first:
+      4: 400100
+    second: RightHandThumb1
+  - first:
+      4: 400102
+    second: RightHandThumb2
+  - first:
+      4: 400104
+    second: RightHandThumb3
+  - first:
+      4: 400106
+    second: RightHandThumb4
+  - first:
+      4: 400108
+    second: RightLeg
+  - first:
+      4: 400110
+    second: RightLeg_IK_BakingLOC
+  - first:
+      4: 400112
+    second: RightShoulder
+  - first:
+      4: 400114
+    second: RightToe_End
+  - first:
+      4: 400116
+    second: RightToeBase
+  - first:
+      4: 400118
+    second: RightUpLeg
+  - first:
+      4: 400120
+    second: Root
+  - first:
+      4: 400122
+    second: //RootNode
+  - first:
+      4: 400124
+    second: Spine
+  - first:
+      4: 400126
+    second: Spine1
+  - first:
+      4: 400128
+    second: Spine2
+  - first:
+      74: 7400000
+    second: Run_F
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      41386430: 2186277476908879412
+    second: ImportLogs
   externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -149,9 +415,9 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
-      copied configuration does not match position in animation file:\n\t'LeftHandThumb1'
-      : position error = 16.617699 mm\n"
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
+      does not match position in animation file:\n\t'LeftHandThumb1' : position error
+      = 16.617699 mm\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -165,7 +431,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Run_F
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 13
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -173,25 +468,28 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -200,10 +498,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human:
     - boneName: Root
       humanName: Hips
@@ -911,13 +1209,16 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

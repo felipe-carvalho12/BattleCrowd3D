@@ -2,7 +2,7 @@
 
 public class SwipeManager : MonoBehaviour
 {
-    static public Vector2 startTouch, swipeDelta;
+    static public Vector3 startTouch, swipeDelta;
     private bool isDraging = false;
 
     private void Update()
@@ -19,15 +19,15 @@ public class SwipeManager : MonoBehaviour
         }
         if (isDraging)
         {
-            swipeDelta = (Vector2)Input.mousePosition - startTouch;
+            swipeDelta = Input.mousePosition - startTouch;
         }
         else
         {
             swipeDelta = Vector2.zero;
         }
-        #endregion
+        #endregion*/
 
-        #region Mobile Input
+        /*#region Mobile Input
         if (Input.touches.Length > 0)
         {
             if (Input.touches[0].phase == TouchPhase.Began)
@@ -51,6 +51,6 @@ public class SwipeManager : MonoBehaviour
         {
             swipeDelta = Vector2.zero;
         }
-        #endregion
+        #endregion*/
     }
 }
