@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
         levelComplete = false;
     }
     private void Update() {
-        if (armyCount <= 0)
+        if (armyCount == 0)
         {
             Time.timeScale = 0;
             gameOverCanvas.SetActive(true);

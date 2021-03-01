@@ -13,7 +13,12 @@ public class Ally : MonoBehaviour
     bool walking;
     bool jogging;
     bool running;
+    bool falling;
     Vector2 XZvelocity;
+
+    bool isGrounded() {
+        return Physics.Raycast(transform.position, -Vector3.up, 5f);
+    }
 
     void DestroyAlly()
     {
@@ -49,14 +54,8 @@ public class Ally : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, -Vector2.SignedAngle(new Vector2(0, 1), SwipeManager.swipeDelta), 0);
         }
 
-        if (transform.position.y < 30)
-        {
-            DestroyAlly();
-        }
-
         XZvelocity.x = rigidBody.velocity.x;
         XZvelocity.y = rigidBody.velocity.z;
-
 
         // Idle
         if (XZvelocity.magnitude < walkingMinSpeed && (walking || running || jogging))
@@ -98,6 +97,24 @@ public class Ally : MonoBehaviour
             jogging = false;
             running = true;
         }
+
+        Debug.Log(isGrounded());
+        if (isGrounded() || rigidBody.velocity.y > -3f)
+        {
+            if (falling)
+            {
+                animator.SetBool("falling", false);
+                falling = false;
+            }
+        }
+        else if (!falling)
+        {
+            if (rigidBody.velocity.y < -3f)
+            {
+                animator.SetBool("falling", true);
+                falling = true;
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision other)
@@ -113,6 +130,10 @@ public class Ally : MonoBehaviour
             GameObject newAlly = Instantiate(gameObject, other.transform.position, Quaternion.identity);
             newAlly.transform.tag = "Ally";
             newAlly.transform.SetParent(allies.transform);
+        }
+        else if (gameObject.activeSelf && other.relativeVelocity.y > 10)
+        {
+            DestroyAlly();
         }
     }
 }
