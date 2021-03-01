@@ -1571,6 +1571,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76e565e41fbef1e4483537220bbfbc9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkingMaxSpeed: 2
+  joggingMaxSpeed: 5
+  speedMultiplier: 0.075
+  maxSpeed: 10
 --- !u!136 &5676254152718315535
 CapsuleCollider:
   m_ObjectHideFlags: 0

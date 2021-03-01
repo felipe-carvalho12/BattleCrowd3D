@@ -2,12 +2,17 @@
 
 public class Ally : MonoBehaviour
 {
+    [SerializeField] float walkingMaxSpeed;
+    [SerializeField] float joggingMaxSpeed;
+    [SerializeField] float speedMultiplier;
+    [SerializeField] float maxSpeed;
     Rigidbody rigidBody;
     Animator animator;
     GameObject allies;
-    float speedMultiplier = .05f;
-    float maxSpeed = 10;
+    bool walking;
+    bool jogging;
     bool running;
+    Vector2 XZvelocity;
 
     void DestroyAlly()
     {
@@ -34,7 +39,7 @@ public class Ally : MonoBehaviour
         float velZ = SwipeManager.swipeDelta.y * speedMultiplier;
         if (velZ > maxSpeed) velZ = maxSpeed;
         else if (Mathf.Abs(velZ) > maxSpeed) velZ = -maxSpeed;
-        
+
         rigidBody.velocity = new Vector3(velX, rigidBody.velocity.y, velZ);
 
         if (SwipeManager.swipeDelta.magnitude != 0)
@@ -48,15 +53,52 @@ public class Ally : MonoBehaviour
             DestroyAlly();
         }
 
-        if ((rigidBody.velocity.x != 0 || rigidBody.velocity.z != 0) && !running)
+        XZvelocity.x = rigidBody.velocity.x;
+        XZvelocity.y = rigidBody.velocity.z;
+
+        // Idle
+        if (XZvelocity.magnitude == 0 && (walking || running))
         {
-            animator.SetBool("running", true);
-            running = true;
-        }
-        else if ((rigidBody.velocity.x == 0 || rigidBody.velocity.z == 0) && running)
-        {
+            Debug.Log("idle");
+            animator.SetBool("walking", false);
+            animator.SetBool("jogging", false);
             animator.SetBool("running", false);
+            walking = false;
+            jogging = false;
             running = false;
+        }
+        // Walking
+        else if ((XZvelocity.magnitude > 0 && XZvelocity.magnitude <= walkingMaxSpeed) && !walking)
+        {
+            Debug.Log("walking");
+            animator.SetBool("walking", true);
+            animator.SetBool("jogging", false);
+            animator.SetBool("running", false);
+            walking = true;
+            jogging = false;
+            running = false;
+        }
+        // Jogging
+        else if ((XZvelocity.magnitude > walkingMaxSpeed && XZvelocity.magnitude <= joggingMaxSpeed) && !jogging)
+        {
+            Debug.Log("jogging");
+            animator.SetBool("walking", false);
+            animator.SetBool("jogging", true);
+            animator.SetBool("running", false);
+            walking = false;
+            jogging = true;
+            running = false;
+        }
+        // Running
+        else if ((XZvelocity.magnitude > joggingMaxSpeed) && !running)
+        {
+            Debug.Log("running");
+            animator.SetBool("walking", false);
+            animator.SetBool("jogging", false);
+            animator.SetBool("running", true);
+            walking = false;
+            jogging = false;
+            running = true;
         }
     }
 
@@ -66,7 +108,7 @@ public class Ally : MonoBehaviour
         {
             DestroyAlly();
         }
-        else if (gameObject.activeSelf && other.transform.tag == "Enemy")
+        else if (gameObject.activeSelf && other.transform.tag == "Enemy" && other.gameObject.activeSelf)
         {
             GameController.armyCount++;
             other.gameObject.SetActive(false);
