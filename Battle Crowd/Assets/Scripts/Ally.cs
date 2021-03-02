@@ -17,7 +17,7 @@ public class Ally : MonoBehaviour
     Vector2 XZvelocity;
 
     bool isGrounded() {
-        return Physics.Raycast(transform.position, -Vector3.up, 5f);
+        return Physics.Raycast(transform.position, -Vector3.up, 5f, 8, QueryTriggerInteraction.Ignore);
     }
 
     void DestroyAlly()

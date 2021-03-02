@@ -28,8 +28,8 @@ public class GroundSpawner : MonoBehaviour
         lastTileWasSpawned = false;
         for (int i = 0; i < 40; i++)
         {
-            if (i < 5) SpawnTile(0);
-            else SpawnTile(Random.Range(0, tiles.Length));
+            if (i < 3) SpawnTile(0);
+            else SpawnTile();
         }
     }
     private void Update()
