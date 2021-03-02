@@ -16,10 +16,6 @@ public class Ally : MonoBehaviour
     bool falling;
     Vector2 XZvelocity;
 
-    bool isGrounded() {
-        return Physics.Raycast(transform.position, -Vector3.up, 5f, 8, QueryTriggerInteraction.Ignore);
-    }
-
     void DestroyAlly()
     {
         gameObject.SetActive(false);
@@ -98,8 +94,7 @@ public class Ally : MonoBehaviour
             running = true;
         }
 
-        Debug.Log(isGrounded());
-        if (isGrounded() || rigidBody.velocity.y > -3f)
+        if (Mathf.Abs(rigidBody.velocity.y) < 6f)
         {
             if (falling)
             {
@@ -109,11 +104,13 @@ public class Ally : MonoBehaviour
         }
         else if (!falling)
         {
-            if (rigidBody.velocity.y < -3f)
-            {
-                animator.SetBool("falling", true);
-                falling = true;
-            }
+            animator.SetBool("falling", true);
+            falling = true;
+        }
+
+        if (transform.position.y < 0)
+        {
+            DestroyAlly();
         }
     }
 

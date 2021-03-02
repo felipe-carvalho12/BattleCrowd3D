@@ -28,7 +28,7 @@ public class GroundSpawner : MonoBehaviour
         lastTileWasSpawned = false;
         for (int i = 0; i < 40; i++)
         {
-            if (i < 3) SpawnTile(0);
+            if (i < 5) SpawnTile(0);
             else SpawnTile();
         }
     }
@@ -45,10 +45,12 @@ public class GroundSpawner : MonoBehaviour
             {
                 if (Mathf.Abs(i - allyTileIndex) <= renderingRadius)
                 {
-                    spawnedTiles[i].SetActive(true);
-                    continue;
+                    if (!spawnedTiles[i].activeSelf) spawnedTiles[i].SetActive(true);
                 }
-                spawnedTiles[i].SetActive(false);
+                else if (spawnedTiles[i].activeSelf)
+                {
+                    spawnedTiles[i].SetActive(false);
+                }
             }
         }
     }
