@@ -1689,6 +1689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76e565e41fbef1e4483537220bbfbc9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blood: {fileID: 1080264284409165251, guid: 3bc46b368b5b3394ba00d343f5c8c19d, type: 3}
   walkingMinSpeed: 0.5
   walkingMaxSpeed: 3
   joggingMaxSpeed: 5

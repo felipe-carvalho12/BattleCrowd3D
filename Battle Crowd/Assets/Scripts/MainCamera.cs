@@ -2,20 +2,15 @@
 
 public class MainCamera : MonoBehaviour
 {
-    Transform player;
+    Transform allies;
     Vector3 offset;
 
     private void Start() {
-        player = GameObject.FindGameObjectWithTag("ReferenceAlly").transform;
-        offset = transform.position - player.position;
+        allies = GameObject.FindGameObjectWithTag("AlliesCommander").transform;
+        offset = transform.position - allies.position;
     }
 
     private void FixedUpdate() {
-        if (!player.gameObject.activeSelf && GameController.armyCount > 0)
-        {
-            player = GameObject.FindGameObjectWithTag("ReferenceAlly").transform;
-        }
-        Vector3 targetPos = player.position + offset;
-        transform.position = targetPos;
+        transform.position = allies.position + offset;
     }
 }

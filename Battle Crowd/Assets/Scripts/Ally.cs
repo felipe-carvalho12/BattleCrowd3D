@@ -2,14 +2,12 @@
 
 public class Ally : MonoBehaviour
 {
+    [SerializeField] GameObject blood;
     [SerializeField] float walkingMinSpeed;
     [SerializeField] float walkingMaxSpeed;
     [SerializeField] float joggingMaxSpeed;
-    [SerializeField] float speedMultiplier;
-    [SerializeField] float maxSpeed;
     Rigidbody rigidBody;
     Animator animator;
-    GameObject allies;
     bool walking;
     bool jogging;
     bool running;
@@ -20,30 +18,15 @@ public class Ally : MonoBehaviour
     {
         gameObject.SetActive(false);
         GameController.armyCount--;
-        if (transform.tag == "ReferenceAlly" && GameController.armyCount > 0)
-        {
-            GameObject.FindGameObjectWithTag("Ally").tag = "ReferenceAlly";
-            transform.tag = "Ally";
-        }
+        Instantiate(blood, gameObject.transform.position + Vector3.up, Quaternion.identity);
     }
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-        allies = GameObject.FindGameObjectWithTag("Allies");
     }
     private void FixedUpdate()
     {
-        float velX = SwipeManager.swipeDelta.x * speedMultiplier;
-        if (velX > maxSpeed) velX = maxSpeed;
-        else if (Mathf.Abs(velX) > maxSpeed) velX = -maxSpeed;
-
-        float velZ = SwipeManager.swipeDelta.y * speedMultiplier;
-        if (velZ > maxSpeed) velZ = maxSpeed;
-        else if (Mathf.Abs(velZ) > maxSpeed) velZ = -maxSpeed;
-
-        rigidBody.velocity = new Vector3(velX, rigidBody.velocity.y, velZ);
-
         if (SwipeManager.swipeDelta.magnitude != 0)
         {
 
@@ -126,7 +109,7 @@ public class Ally : MonoBehaviour
             other.gameObject.SetActive(false);
             GameObject newAlly = Instantiate(gameObject, other.transform.position, Quaternion.identity);
             newAlly.transform.tag = "Ally";
-            newAlly.transform.SetParent(allies.transform);
+            newAlly.transform.SetParent(AlliesCommander.soldiers.transform);
         }
         else if (gameObject.activeSelf && other.relativeVelocity.y > 6)
         {
