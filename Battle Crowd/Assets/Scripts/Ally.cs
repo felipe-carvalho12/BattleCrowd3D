@@ -128,7 +128,7 @@ public class Ally : MonoBehaviour
             newAlly.transform.tag = "Ally";
             newAlly.transform.SetParent(allies.transform);
         }
-        else if (gameObject.activeSelf && other.relativeVelocity.y > 10)
+        else if (gameObject.activeSelf && other.relativeVelocity.y > 6)
         {
             DestroyAlly();
         }
