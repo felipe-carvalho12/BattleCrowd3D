@@ -18,7 +18,10 @@ public class Ally : MonoBehaviour
     {
         gameObject.SetActive(false);
         GameController.armyCount--;
+
+        AlliesCommander.alliesOffset.RemoveAt(AlliesCommander.allies.IndexOf(gameObject));
         AlliesCommander.allies.Remove(gameObject);
+        
         Instantiate(blood, gameObject.transform.position + Vector3.up, Quaternion.identity);
         AlliesCommander.OrganizeArmy();
     }
@@ -29,12 +32,6 @@ public class Ally : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (SwipeManager.swipeDelta.magnitude != 0)
-        {
-
-            transform.rotation = Quaternion.Euler(0, -Vector2.SignedAngle(new Vector2(0, 1), SwipeManager.swipeDelta), 0);
-        }
-
         XZvelocity.x = rigidBody.velocity.x;
         XZvelocity.y = rigidBody.velocity.z;
 
@@ -112,6 +109,7 @@ public class Ally : MonoBehaviour
             GameObject newAlly = Instantiate(gameObject, other.transform.position, Quaternion.identity);
             newAlly.transform.tag = "Ally";
             newAlly.transform.SetParent(AlliesCommander.soldiersObj.transform);
+
             AlliesCommander.allies.Add(newAlly);
             AlliesCommander.OrganizeArmy();
         }

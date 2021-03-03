@@ -8,30 +8,48 @@ public class AlliesCommander : MonoBehaviour
     [SerializeField] GameObject allyPrefab;
     [SerializeField] float speedMultiplier;
     [SerializeField] float maxSpeed;
-    static bool velocityWasResetted;
-
     public static List<GameObject> allies = new List<GameObject>();
-    static List<Vector2> alliesOffset = new List<Vector2>();
+    public static List<Vector2> alliesOffset = new List<Vector2>();
+    static bool velocityWasResetted;
+    static float rowsNum;
 
-    void MoveArmy() {
+    void MoveArmy()
+    {
+        float swipeDeltaAngle = -Vector2.SignedAngle(new Vector2(0, 1), SwipeManager.swipeDelta);
+
         for (int i = 0; i < allies.Count; i++)
         {
             GameObject ally = allies[i];
             Vector2 offset = alliesOffset[i];
-            ally.transform.position = Vector3.Lerp(ally.transform.position, ally.transform.position + new Vector3(offset.x, 0, offset.y), .4f);
+
+            float radius = offset.magnitude;
+            float allyAngle = Vector2.SignedAngle(new Vector2(0, 1), offset);
+            float allyAngleSin = Mathf.Sin(Mathf.Deg2Rad * (allyAngle + swipeDeltaAngle));
+            float allyAngleCos = Mathf.Cos(Mathf.Deg2Rad * (allyAngle + swipeDeltaAngle));
+
+            ally.transform.position = Vector3.Lerp(ally.transform.position, transform.position + new Vector3(allyAngleSin * radius, 0, allyAngleCos * radius), .25f);
+            ally.transform.rotation = Quaternion.Euler(0, -Vector2.SignedAngle(new Vector2(0, 1), new Vector2(allyAngleSin * radius, allyAngleCos * radius)), 0);
         }
     }
     public static void OrganizeArmy()
     {
-        float rowsNum = Mathf.Round(Mathf.Sqrt(allies.Count));
+        rowsNum = Mathf.Round(Mathf.Sqrt(allies.Count));
         for (int i = 0; i < rowsNum; i++)
         {
             float place = Mathf.Ceil(Mathf.Sqrt(allies.Count));
-            for (int j = 1; (place*i + j <= allies.Count && j <= Mathf.Ceil(allies.Count/rowsNum)); j++)
+            for (int j = 1; (place * i + j <= allies.Count && j <= Mathf.Ceil(allies.Count / rowsNum)); j++)
             {
-                float xPosOffset = (i + 1 == rowsNum ? allies.Count - place*i : place) - 1;
-                Vector3 offset = new Vector2(-(xPosOffset) / 2 + (j - 1), -i);
-                alliesOffset[(int)place*i + j - 1] = offset;
+                float xPosOffset = (i + 1 == rowsNum ? allies.Count - place * i : place) - 1;
+                int index = (int)place * i + j - 1;
+                Vector2 offset = new Vector2(-(xPosOffset) / 2 + (j - 1), -i);
+                if (alliesOffset.Count > index)
+                {
+                    alliesOffset[index] = offset;
+                }
+                else
+                {
+                    alliesOffset.Add(offset);
+                }
             }
         }
         velocityWasResetted = false;
@@ -54,6 +72,8 @@ public class AlliesCommander : MonoBehaviour
         GameObject ally = Instantiate(allyPrefab, transform.position, Quaternion.identity);
         ally.transform.SetParent(soldiersObj.transform);
         allies.Add(ally);
+
+        OrganizeArmy();
     }
 
     private void FixedUpdate()

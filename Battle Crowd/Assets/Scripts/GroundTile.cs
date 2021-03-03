@@ -25,24 +25,6 @@ public class GroundTile : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (!referenceAllyCrossedTile)
-        {
-            Transform referenceAllyTransform = GameObject.FindGameObjectWithTag("ReferenceAlly").transform;
-            if (other.transform.IsChildOf(referenceAllyTransform))
-            {
-                if (!spawnedNewTile && !GroundSpawner.lastTileWasSpawned) groundSpawner.SpawnTile();
-                if (transform.position.z > referenceAllyTransform.position.z)
-                {
-                    groundSpawner.allyTileIndex--;
-                }
-                else
-                {
-                    groundSpawner.allyTileIndex++;
-                }
-                spawnedNewTile = true;
-                referenceAllyCrossedTile = true;
-                timeToComputeNextCross = 3f;
-            }
-        }
+        
     }
 }

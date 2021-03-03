@@ -8,7 +8,8 @@ TagManager:
   - Enemy
   - Ally
   - ReferenceAlly
-  - Allies
+  - AlliesCommander
+  - Soldiers
   layers:
   - Default
   - TransparentFX
