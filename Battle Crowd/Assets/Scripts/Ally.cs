@@ -45,7 +45,7 @@ public class Ally : MonoBehaviour
             jogging = false;
             running = false;
         }
-        /*// Walking
+        // Walking
         else if ((XZvelocity.magnitude > 0 && XZvelocity.magnitude <= walkingMaxSpeed) && !walking)
         {
             animator.SetBool("walking", true);
@@ -88,7 +88,7 @@ public class Ally : MonoBehaviour
         {
             animator.SetBool("falling", true);
             falling = true;
-        }*/
+        }
 
         if (transform.position.y < 0)
         {
