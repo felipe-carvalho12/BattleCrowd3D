@@ -1587,7 +1587,7 @@ GameObject:
   - component: {fileID: 5400244938324791360}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

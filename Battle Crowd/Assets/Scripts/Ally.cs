@@ -18,7 +18,9 @@ public class Ally : MonoBehaviour
     {
         gameObject.SetActive(false);
         GameController.armyCount--;
+        AlliesCommander.allies.Remove(gameObject);
         Instantiate(blood, gameObject.transform.position + Vector3.up, Quaternion.identity);
+        AlliesCommander.OrganizeArmy();
     }
     private void Start()
     {
@@ -46,7 +48,7 @@ public class Ally : MonoBehaviour
             jogging = false;
             running = false;
         }
-        // Walking
+        /*// Walking
         else if ((XZvelocity.magnitude > 0 && XZvelocity.magnitude <= walkingMaxSpeed) && !walking)
         {
             animator.SetBool("walking", true);
@@ -89,7 +91,7 @@ public class Ally : MonoBehaviour
         {
             animator.SetBool("falling", true);
             falling = true;
-        }
+        }*/
 
         if (transform.position.y < 0)
         {
@@ -109,9 +111,11 @@ public class Ally : MonoBehaviour
             other.gameObject.SetActive(false);
             GameObject newAlly = Instantiate(gameObject, other.transform.position, Quaternion.identity);
             newAlly.transform.tag = "Ally";
-            newAlly.transform.SetParent(AlliesCommander.soldiers.transform);
+            newAlly.transform.SetParent(AlliesCommander.soldiersObj.transform);
+            AlliesCommander.allies.Add(newAlly);
+            AlliesCommander.OrganizeArmy();
         }
-        else if (gameObject.activeSelf && other.relativeVelocity.y > 6)
+        else if (gameObject.activeSelf && other.relativeVelocity.y > 10)
         {
             DestroyAlly();
         }
