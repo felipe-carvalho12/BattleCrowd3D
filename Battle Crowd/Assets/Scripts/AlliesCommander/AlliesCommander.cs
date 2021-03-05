@@ -10,31 +10,18 @@ public class AlliesCommander : MonoBehaviour
     [SerializeField] float maxSpeed;
     public static List<GameObject> allies = new List<GameObject>();
     public static List<Vector2> alliesOffset = new List<Vector2>();
+    public static List<Animator> alliesAnimators = new List<Animator>();
     static bool velocityWasResetted;
     static float rowsNum;
 
-    void AnimateAlly(Vector3 vel) {
-        
-    }
     void MoveArmy()
     {
-        Vector3 armyCenter = new Vector3(transform.position.x, transform.position.y, transform.position.z - (rowsNum - 1) / 2);
-
-        float swipeDeltaAngle = -Vector2.SignedAngle(new Vector2(0, 1), SwipeManager.swipeDelta);
-
         for (int i = 0; i < allies.Count; i++)
         {
             GameObject ally = allies[i];
             Vector2 offset = alliesOffset[i];
 
-            float radius = (transform.position + new Vector3(offset.x, 0, offset.y) - armyCenter).magnitude;
-            float allyAngle = Vector2.SignedAngle(new Vector2(0, 1), offset - new Vector2(0, -(rowsNum - 1) / 2));
-            float allyAngleSin = Mathf.Sin(Mathf.Deg2Rad * (allyAngle + swipeDeltaAngle));
-            float allyAngleCos = Mathf.Cos(Mathf.Deg2Rad * (allyAngle + swipeDeltaAngle));
-
-            Vector3 deltaPos = armyCenter + new Vector3(allyAngleSin * radius, 0, allyAngleCos * radius) - ally.transform.position;
-            ally.transform.rotation = Quaternion.Euler(0, -Vector2.SignedAngle(Vector2.up, new Vector2(deltaPos.x, deltaPos.z)), 0);
-            ally.transform.position = armyCenter + new Vector3(allyAngleSin * radius, 0, allyAngleCos * radius);
+            ally.transform.position = transform.position + new Vector3(offset.x, 0, offset.y);
         }
     }
     public static void OrganizeArmy()

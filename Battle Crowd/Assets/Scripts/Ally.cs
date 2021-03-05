@@ -3,23 +3,21 @@
 public class Ally : MonoBehaviour
 {
     [SerializeField] GameObject blood;
-    [SerializeField] float walkingMinSpeed;
-    [SerializeField] float walkingMaxSpeed;
-    [SerializeField] float joggingMaxSpeed;
     Rigidbody rigidBody;
     Animator animator;
     bool walking;
     bool jogging;
     bool running;
     bool falling;
-    Vector2 XZvelocity;
 
     void DestroyAlly()
     {
         gameObject.SetActive(false);
         GameController.armyCount--;
 
-        AlliesCommander.alliesOffset.RemoveAt(AlliesCommander.allies.IndexOf(gameObject));
+        int index = AlliesCommander.allies.IndexOf(gameObject);
+        AlliesCommander.alliesOffset.RemoveAt(index);
+        AlliesCommander.alliesAnimators.RemoveAt(index);
         AlliesCommander.allies.Remove(gameObject);
         
         Instantiate(blood, gameObject.transform.position + Vector3.up, Quaternion.identity);
@@ -32,64 +30,10 @@ public class Ally : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        XZvelocity.x = rigidBody.velocity.x;
-        XZvelocity.y = rigidBody.velocity.z;
-
-        // Idle
-        if (XZvelocity.magnitude < walkingMinSpeed && (walking || running || jogging))
+        if (SwipeManager.swipeDelta != Vector3.zero)
         {
-            animator.SetBool("walking", false);
-            animator.SetBool("jogging", false);
-            animator.SetBool("running", false);
-            walking = false;
-            jogging = false;
-            running = false;
+            transform.rotation = Quaternion.Euler(0, -Vector2.SignedAngle(Vector2.up, SwipeManager.swipeDelta), 0);
         }
-        // Walking
-        else if ((XZvelocity.magnitude > 0 && XZvelocity.magnitude <= walkingMaxSpeed) && !walking)
-        {
-            animator.SetBool("walking", true);
-            animator.SetBool("jogging", false);
-            animator.SetBool("running", false);
-            walking = true;
-            jogging = false;
-            running = false;
-        }
-        // Jogging
-        else if ((XZvelocity.magnitude > walkingMaxSpeed && XZvelocity.magnitude <= joggingMaxSpeed) && !jogging)
-        {
-            animator.SetBool("walking", false);
-            animator.SetBool("jogging", true);
-            animator.SetBool("running", false);
-            walking = false;
-            jogging = true;
-            running = false;
-        }
-        // Running
-        else if ((XZvelocity.magnitude > joggingMaxSpeed) && !running)
-        {
-            animator.SetBool("walking", false);
-            animator.SetBool("jogging", false);
-            animator.SetBool("running", true);
-            walking = false;
-            jogging = false;
-            running = true;
-        }
-
-        if (Mathf.Abs(rigidBody.velocity.y) < 6f)
-        {
-            if (falling)
-            {
-                animator.SetBool("falling", false);
-                falling = false;
-            }
-        }
-        else if (!falling)
-        {
-            animator.SetBool("falling", true);
-            falling = true;
-        }
-
         if (transform.position.y < 0)
         {
             DestroyAlly();
@@ -111,6 +55,7 @@ public class Ally : MonoBehaviour
             newAlly.transform.SetParent(AlliesCommander.soldiersObj.transform);
 
             AlliesCommander.allies.Add(newAlly);
+            AlliesCommander.alliesAnimators.Add(newAlly.gameObject.GetComponent<Animator>());
             AlliesCommander.OrganizeArmy();
         }
         else if (gameObject.activeSelf && other.relativeVelocity.y > 10)
